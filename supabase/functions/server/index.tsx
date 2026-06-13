@@ -15,7 +15,7 @@ app.use("/*", cors({
 }));
 
 const BUCKET = 'make-5acea9aa-images';
-const PREFIX = '/server';
+const PREFIX = '';
 
 const getSupabase = () => createClient(
   Deno.env.get('SUPABASE_URL')!,
