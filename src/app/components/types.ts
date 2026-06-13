@@ -52,3 +52,66 @@ export const CATEGORY_IMAGES: Record<Category, string> = {
   drink: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=800&h=600&fit=crop&auto=format',
   hamburgueres: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&h=600&fit=crop&auto=format',
 };
+export type OrderStatus =
+  | 'pending'
+  | 'confirmed'
+  | 'preparing'
+  | 'ready'
+  | 'delivered'
+  | 'cancelled';
+
+export interface OrderItem {
+  id?: string;
+  name: string;
+  image_url: string;
+  quantity: number;
+  price: number;
+}
+
+export type PaymentStatus =
+  | 'pending'
+  | 'approved'
+  | 'rejected'
+  | 'cash';
+
+export type OrderType =
+  | 'delivery'
+  | 'pickup';
+
+export interface Order {
+  id: string;
+  status: OrderStatus;
+
+  created_at: string;
+
+  order_type: OrderType;
+
+  items: OrderItem[];
+
+  notes?: string;
+
+  total: number;
+
+  payment_status: PaymentStatus;
+
+  payment_url?: string | null;
+}
+
+
+export const STATUS_LABELS: Record<OrderStatus, string> = {
+  pending: 'Pendente',
+  confirmed: 'Confirmado',
+  preparing: 'Preparando',
+  ready: 'Pronto',
+  delivered: 'Entregue',
+  cancelled: 'Cancelado',
+};
+
+export const STATUS_COLORS: Record<OrderStatus, string> = {
+  pending: 'text-yellow-500',
+  confirmed: 'text-blue-500',
+  preparing: 'text-orange-500',
+  ready: 'text-green-500',
+  delivered: 'text-gray-500',
+  cancelled: 'text-red-500',
+};
