@@ -12,6 +12,9 @@ export interface MenuItem {
   featured: boolean;
   created_at?: string;
 }
+export interface CartItem extends MenuItem {
+  quantity: number;
+} 
 
 export const CATEGORY_LABELS: Record<Category, string> = {
   carnes: 'Carnes',

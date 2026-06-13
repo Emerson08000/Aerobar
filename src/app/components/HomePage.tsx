@@ -154,7 +154,7 @@ export function HomePage() {
             <Clock size={16} className="text-primary shrink-0" />
             <div>
               <p className="text-xs text-muted-foreground">Horário</p>
-              <p className="text-sm font-semibold">Seg–Dom · 11h às 23h</p>
+              <p className="text-sm font-semibold">Seg–Dom · 10h às 23h</p>
             </div>
           </div>
           <div className="flex items-center gap-3">
@@ -434,14 +434,14 @@ export function HomePage() {
               <div className="space-y-1.5 text-sm">
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Segunda – Sexta</span>
-                  <span className="font-medium">11:00 – 23:00</span>
+                  <span className="font-medium">10:00 – 23:00</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Sábado – Domingo</span>
-                  <span className="font-medium">11:00 – 23:00</span>
+                  <span className="font-medium">10:00 – 23:00</span>
                 </div>
                 <div className="mt-2 pt-2 border-t border-border">
-                  <p className="text-xs text-muted-foreground">⚡ Prato Executivo: Seg–Sex das 11:00 às 16:00</p>
+                  <p className="text-xs text-muted-foreground">⚡ Prato Executivo: Seg–Sex das 10:00 às 22:00</p>
                   <p className="text-xs text-muted-foreground mt-1">🍔 Hambúrgueres: todos os dias a partir das 18:00</p>
                 </div>
               </div>
