@@ -15,7 +15,7 @@ app.use("/*", cors({
 }));
 
 const BUCKET = 'make-5acea9aa-images';
-const PREFIX = '/make-server-5acea9aa';
+const PREFIX = '/server';
 
 const getSupabase = () => createClient(
   Deno.env.get('SUPABASE_URL')!,
@@ -85,11 +85,6 @@ const IMG = {
   caipirinha: 'https://images.unsplash.com/photo-1573624658129-3f7856192f19?w=800&h=600&fit=crop&auto=format',
   ginTonica: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=800&h=600&fit=crop&auto=format',
   cocktail: 'https://images.unsplash.com/photo-1551024601-bec78aea704b?w=800&h=600&fit=crop&auto=format',
-  burger: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&h=600&fit=crop&auto=format',
-  burgerCarneSol: 'https://images.unsplash.com/photo-1550547660-d9450f859349?w=800&h=600&fit=crop&auto=format',
-  burgerCheddar: 'https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?w=800&h=600&fit=crop&auto=format',
-  burgerBacon: 'https://images.unsplash.com/photo-1553979459-d2229ba7433b?w=800&h=600&fit=crop&auto=format',
-  burgerSimples: 'https://images.unsplash.com/photo-1561758033-7e924f619b47?w=800&h=600&fit=crop&auto=format',
 };
 
 const SEED_ITEMS = [
@@ -186,21 +181,9 @@ const SEED_ITEMS = [
   { id: crypto.randomUUID(), name: 'Gin Tônica de Limão', description: 'Gin, tônica e limão. Refrescante e elegante.', price: 29.00, category: 'drink', image_url: IMG.ginTonica, ingredients: ['Gin', 'Água tônica', 'Limão', 'Gelo'], available: true, featured: false },
   { id: crypto.randomUUID(), name: 'Gin Tônica de Morango', description: 'Gin, tônica e morango. Sofisticado e frutado.', price: 29.00, category: 'drink', image_url: IMG.ginTonica, ingredients: ['Gin', 'Água tônica', 'Morango', 'Gelo'], available: true, featured: false },
   { id: crypto.randomUUID(), name: 'Gin Tônica de Maracujá', description: 'Gin, tônica e maracujá. Tropical e delicioso.', price: 29.00, category: 'drink', image_url: IMG.ginTonica, ingredients: ['Gin', 'Água tônica', 'Maracujá', 'Gelo'], available: true, featured: false },
-  // ─── HAMBÚRGUERES ───
-  { id: crypto.randomUUID(), name: 'X-Foguinho', description: 'Duplo burguer de 180g, carne de sol, bacon, cebola caramelizada, catupiry, abacaxi grelhado, muçarela e molho especial no pão de brioche.', price: 50.00, category: 'hamburgueres', image_url: IMG.burger, ingredients: ['Burguer duplo 180g', 'Carne de sol', 'Bacon', 'Cebola caramelizada', 'Catupiry', 'Abacaxi grelhado', 'Muçarela', 'Molho especial', 'Pão de brioche'], available: true, featured: true },
-  { id: crypto.randomUUID(), name: 'Nordestino', description: 'Burguer de 180g, charque acebolado, queijo de coalho e molho especial no pão de brioche.', price: 39.00, category: 'hamburgueres', image_url: IMG.burgerCarneSol, ingredients: ['Burguer 180g', 'Charque acebolado', 'Queijo de coalho', 'Molho especial', 'Pão de brioche'], available: true, featured: true },
-  { id: crypto.randomUUID(), name: 'X-Carne de Sol', description: 'Burguer de 180g, carne de sol, cream cheese, muçarela e molho especial no pão de brioche.', price: 39.00, category: 'hamburgueres', image_url: IMG.burgerCarneSol, ingredients: ['Burguer 180g', 'Carne de sol', 'Cream cheese', 'Muçarela', 'Molho especial', 'Pão de brioche'], available: true, featured: false },
-  { id: crypto.randomUUID(), name: 'Duplo Cheddar', description: 'Duplo burguer de 120g, cheddar cremoso, bacon crocante, cebola caramelizada e molho especial no pão de brioche.', price: 36.00, category: 'hamburgueres', image_url: IMG.burgerCheddar, ingredients: ['Burguer duplo 120g', 'Cheddar cremoso', 'Bacon crocante', 'Cebola caramelizada', 'Molho especial', 'Pão de brioche'], available: true, featured: true },
-  { id: crypto.randomUUID(), name: 'Cheddar Especial', description: 'Burguer de 180g na brasa, cheddar cremoso, cebola caramelizada e molho especial no pão de brioche.', price: 32.00, category: 'hamburgueres', image_url: IMG.burgerCheddar, ingredients: ['Burguer 180g', 'Cheddar cremoso', 'Cebola caramelizada', 'Molho especial', 'Pão de brioche'], available: true, featured: false },
-  { id: crypto.randomUUID(), name: 'Fitness', description: 'Burguer de 120g na brasa, muçarela, ovo, tomate, alface e molho especial no pão de brioche.', price: 30.00, category: 'hamburgueres', image_url: IMG.burgerSimples, ingredients: ['Burguer 120g', 'Muçarela', 'Ovo', 'Tomate', 'Alface', 'Molho especial', 'Pão de brioche'], available: true, featured: false },
-  { id: crypto.randomUUID(), name: 'X-Frango', description: 'Burguer de 120g, frango desfiado, catupiry, muçarela, tomate, alface e molho especial no pão de brioche.', price: 30.00, category: 'hamburgueres', image_url: IMG.burgerSimples, ingredients: ['Burguer 120g', 'Frango desfiado', 'Catupiry', 'Muçarela', 'Tomate', 'Alface', 'Molho especial', 'Pão de brioche'], available: true, featured: false },
-  { id: crypto.randomUUID(), name: 'X-Bacon', description: 'Burguer de 180g, muçarela, bacon crocante e molho especial no pão de brioche.', price: 30.00, category: 'hamburgueres', image_url: IMG.burgerBacon, ingredients: ['Burguer 180g', 'Muçarela', 'Bacon crocante', 'Molho especial', 'Pão de brioche'], available: true, featured: false },
-  { id: crypto.randomUUID(), name: 'X-Burguer', description: 'Burguer de 180g, muçarela e molho especial no pão de brioche.', price: 26.00, category: 'hamburgueres', image_url: IMG.burgerSimples, ingredients: ['Burguer 180g', 'Muçarela', 'Molho especial', 'Pão de brioche'], available: true, featured: false },
-  { id: crypto.randomUUID(), name: 'X-Burguer Kids', description: 'Burguer de 120g, batata frita, muçarela e molho especial no pão de brioche.', price: 23.00, category: 'hamburgueres', image_url: IMG.burgerSimples, ingredients: ['Burguer 120g', 'Batata frita', 'Muçarela', 'Molho especial', 'Pão de brioche'], available: true, featured: false },
-  { id: crypto.randomUUID(), name: 'Mini Burguer', description: 'Burguer de 120g, muçarela ou cheddar e molho especial no pão de brioche.', price: 19.00, category: 'hamburgueres', image_url: IMG.burgerSimples, ingredients: ['Burguer 120g', 'Muçarela ou cheddar', 'Molho especial', 'Pão de brioche'], available: true, featured: false },
 ];
 
-const SEED_VERSION = 'v5-hamburgueres';
+const SEED_VERSION = 'v2-foguinho-real-menu';
 
 (async () => {
   try {
@@ -446,7 +429,7 @@ app.post(`${PREFIX}/payment/create`, async (c) => {
         pending: `https://aerobar.com.br/pedido/${orderId}?payment=pending`,
       },
       auto_return: 'approved',
-      notification_url: `${supabaseUrl}/functions/v1/make-server-5acea9aa/payment/webhook`,
+      notification_url: `${supabaseUrl}/functions/v1/server/payment/webhook`,
       external_reference: orderId,
       statement_descriptor: 'RESTAURANTE FOGUINHO',
     };

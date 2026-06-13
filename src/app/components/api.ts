@@ -1,6 +1,6 @@
 import { projectId, publicAnonKey } from '../../../utils/supabase/info';
 
-export const BASE_URL = `https://${projectId}.supabase.co/functions/v1/make-server-5acea9aa`;
+export const BASE_URL = `https://${projectId}.supabase.co/functions/v1/server`;
 
 function getAdminToken() {
   return localStorage.getItem('aerobar_admin_token');
